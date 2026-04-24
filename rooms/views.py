@@ -1,15 +1,11 @@
 from django.shortcuts import render
-from .services import release_place
-
-# Create your views here.
-
+from .services import release_place, occupy_place_in_room
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .services import occupy_place_in_room
 from .serializers import PlaceSerializer, RoomPlacesSerializer
 from .models import Room
-from .services import release_place
+
 
 class LeavePlaceView(APIView):
     def post(self, request, place_id):
@@ -47,7 +43,6 @@ class EnterRoomView(APIView):
 class RoomPlacesView(APIView):
     def get(self, request, room_id):
         try:
-            # Теперь за всю работу отвечает RoomPlacesSerializer
             room = Room.objects.get(id=room_id)
             serializer = RoomPlacesSerializer(room)
             return Response(serializer.data)
