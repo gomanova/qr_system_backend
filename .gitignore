@@ -1,0 +1,20 @@
+# База данных (самое важное!)
+db.sqlite3
+db.sqlite3-journal
+
+# Временные файлы Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Настройки macOS
+.DS_Store
+
+# Виртуальное окружение (если используешь)
+env/
+venv/
+.env
+
+# Логи и папки медиа
+*.log
+media/
